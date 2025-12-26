@@ -32,7 +32,7 @@ china-policy-monitor/
 
 (Note: The models/ folder is NOT in the repo. It will be automatically created on your local machine to store the .RData file when you first run the app.)
 
-## 💻** Installation & Usage**
+## 💻 Installation & Usage
 **Prerequisites**
 R (Version 4.0 or higher)
 RStudio (Recommended)
@@ -59,4 +59,4 @@ Cleaning: Regex filters remove administrative noise (e.g., "Year 2025" vs "Made 
 The core Structural Topic Model (STM) used in this dashboard was trained by Xiaohan Wu (Ph.D. Candidate in Political Science, UC San Diego).
 Model: tm_2.stm_auto.RData (Pre-trained on a corpus of Chinese central and local industrial policy documents).
 Original Researcher: Xiaohan Wu (xiw021@ucsd.edu).
-This project extends her research by providing a scalable web interface for real-time policy scoring and visualization.
+This project extends her research by providing a scalable web interface for real-time policy scoring and visualization.```
