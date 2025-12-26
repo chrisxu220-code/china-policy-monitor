@@ -28,5 +28,35 @@ china-policy-monitor/
 │   ├── add_word.txt       # Custom user dictionary for Jieba
 │   ├── cn_stopwords.txt   # Stopwords list
 │   └── Topic Labels.csv   # Mapping of Topic IDs to human-readable names
-├── models/                # (Auto-created) Stores the downloaded .RData model
 └── README.md              # Project documentation
+
+(Note: The models/ folder is NOT in the repo. It will be automatically created on your local machine to store the .RData file when you first run the app.)
+
+💻** Installation & Usage**
+**Prerequisites**
+R (Version 4.0 or higher)
+RStudio (Recommended)
+
+**Quick Start**
+You do not need to manually download the large model file. The script handles it for you.
+**1. Clone the repository:**
+Bash
+git clone [https://github.com/chrisxu220-code/china-policy-monitor.git](https://github.com/chrisxu220-code/china-policy-monitor.git)
+**2. Open the project in RStudio: **Open app.R. RStudio usually prompts to install missing packages (shiny, stm, jiebaR, etc.). If not, run this in the console:
+R
+install.packages(c("shiny", "tidyverse", "jiebaR", "stm", "readxl", "writexl", "quanteda", "stringi"))
+**3. Run the App:** Click the "Run App" button in RStudio.
+Note: On the very first run, check the R console. You will see a message: "Model file not found. Downloading from GitHub Releases...". Wait for the download to finish (approx. 200MB).
+**4. Upload Data:** Upload an Excel (.xlsx) or CSV file.
+Requirement: The file must contain a column named Content which stores the Chinese text.
+
+**🔍 Methodology**
+**Segmentation:** Raw text is segmented using jiebaR with a specialized dictionary focused on Chinese policy terminology.
+Cleaning: Regex filters remove administrative noise (e.g., "Year 2025" vs "Made in China 2025"), location names, and non-semantic characters.
+**Transfer Learning:** Instead of retraining the model, we use the STM fitNewDocuments function to infer the topic distribution (θ) of the new documents based on the vocabulary and priors of the pre-trained model.
+
+**👩‍💻 Credits & Acknowledgements**
+The core Structural Topic Model (STM) used in this dashboard was trained by Xiaohan Wu (Ph.D. Candidate in Political Science, UC San Diego).
+Model: tm_2.stm_auto.RData (Pre-trained on a corpus of Chinese central and local industrial policy documents).
+Original Researcher: Xiaohan Wu (xiw021@ucsd.edu).
+This project extends her research by providing a scalable web interface for real-time policy scoring and visualization.
