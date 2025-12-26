@@ -65,6 +65,26 @@ You **do not** need to manually download the large model file. The script handle
 Cleaning: Regex filters remove administrative noise (e.g., "Year 2025" vs "Made in China 2025"), location names, and non-semantic characters.
 * **Transfer Learning:** Instead of retraining the model, we use the STM fitNewDocuments function to infer the topic distribution (θ) of the new documents based on the vocabulary and priors of the pre-trained model.
 
+## 📊 Analysis Highlights
+
+### Decoding the "Red Queen's Race": A Data-Driven View
+Utilizing Structural Topic Modeling (STM) on a corpus of national tech policies, we identified distinct hierarchical priorities in the Chinese government's strategy.
+
+#### 1. The Discourse of Innovation
+The high-frequency term clusters reveal a dual focus: distinct regional strategies (e.g., "Beijing-Tianjin-Hebei", "Yangtze River Delta") combined with ubiquitous mobilization keywords ("Acceleration", "Deepening", "High Quality").
+
+![Word Cloud](china_policy_wordcloud.png)
+*(Fig 1. Semantic network of high-frequency policy terms)*
+
+#### 2. Strategic Continuity vs. Emerging Frontiers
+* **Strategic Continuity:** As shown in the *Macro Landscape* chart below, **"R&D Strategy"** remains the most consistent policy instrument across all levels of government, serving as the baseline variance for all other policies.
+* **Emerging Frontiers:** The *Top 10 Priorities* highlight a decisive shift towards **"Hard Tech"** (Quantum, SatCom) and **"Ecological Civilization"** (Green City Tech), moving beyond traditional manufacturing incentives.
+
+| Macro Landscape (Aggregated Priorities) | Specific Technological Frontiers |
+| :---: | :---: |
+| ![Macro Landscape](Macro_Policy_Landscape.png) | ![Top 10 Priorities](Top_10_Priorities.png) |
+| *Fig 2. The variance of 12 macro-strategic groups.* | *Fig 3. The top 10 specific topics by probability.* |
+
 ## **👩‍💻 Credits & Acknowledgements**
 * The core Structural Topic Model (STM) used in this dashboard was trained by Xiaohan Wu (Ph.D. Candidate in Political Science, UC San Diego).
 * Model: tm_2.stm_auto.RData (Pre-trained on a corpus of Chinese central and local industrial policy documents).
